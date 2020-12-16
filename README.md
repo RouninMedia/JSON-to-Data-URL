@@ -67,3 +67,6 @@ const dataURLtoJSON = (dataURL) => {
 }
 
 ```
+______
+
+## Practical uses of JSON as a Data URL
