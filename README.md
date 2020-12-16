@@ -27,6 +27,33 @@ ______
 
 const JSONtoDataURL = (JSONString) => {
 
+  let jsonIsValid = validateJSON(JSONString);
+
+  let dataURL = JSONString;
+  dataURL = dataURL.replace(/(\s*\n)+\s*/g, ' ');
+  dataURL = dataURL.replace(/\"/g, '\'');
+  dataURL = dataURL.trim();
+
+  const characterArray = dataURL.split('');
+
+  for (let i = 0; i < characterArray.length; i++) {
+
+    if (characterArray[i].match(/[A-Za-z0-9\.\,\;\:\/\*\-\=\_\~\'\!\$\@]/) === null) {
+
+     characterArray[i] = encodeURIComponent(characterArray[i]);
+    }
+  }
+  
+  dataURL = characterArray.join('');
+  
+  if (jsonIsValid !== true) {
+  
+    dataURL = `%7B'AshivaConsole':'Data submitted does not represent valid JSON.','DataSubmitted':'${dataURL.replace(/\'/g, '\`')}'%7D`;
+  }
+  
+  dataURL = 'data:text/plain;charset=utf-8,' + dataURL;
+
+  return dataURL;
 }
 
 ```
