@@ -71,4 +71,4 @@ ______
 
 ## Practical use-cases for JSON as a Data URL
 
- - Any function like `importJSON()` which, during execution, `fetch`-es a supplied url and then processes the contents will be able to do the same with **JSON as a Data URL** but without the JSON needing to be hosted remotely.
+ - Any function like `importJSON()` which, during execution, `fetch`-es a supplied url (pointing to a remotely-hosted **JSON**) and then processes the contents will be able to do the same with **JSON as a Data URL** but without the JSON needing to be hosted remotely.
